@@ -61,17 +61,17 @@ public class AdminActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        btnCargarMarco.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (ContextCompat.checkSelfPermission(AdminActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                        != PackageManager.PERMISSION_GRANTED){
-//                    ActivityCompat.requestPermissions(AdminActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//                }else{
-//                    elegirArchivo();
-//                }
-//            }
-//        });
+        btnCargarMarco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(AdminActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(AdminActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }else{
+                    elegirArchivo();
+                }
+            }
+        });
 
 
 
@@ -102,25 +102,25 @@ public class AdminActivity extends AppCompatActivity {
         });
     }
 
-//    public void elegirArchivo(){
-//        FileChooser fileChooser = new FileChooser(AdminActivity.this);
-//        fileChooser.setFileListener(new FileChooser.FileSelectedListener() {
-//            @Override
-//            public void fileSelected(File file) {
-//                String filename = file.getAbsolutePath();
-//                if(filename.substring(filename.length()-4,filename.length()).toLowerCase().equals(".xml")){
-//                    Intent intent = new Intent(AdminActivity.this, AdmMarcoActivity.class);
-//                    intent.putExtra("filename",filename);
-//                    intent.putExtra("tipo_carga",1);
-//                    startActivity(intent);
-//                    finish();
-//                }else{
-//                    Toast.makeText(AdminActivity.this, "archivo de tipo incorrecto", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        fileChooser.showDialog();
-//    }
+    public void elegirArchivo(){
+        FileChooser fileChooser = new FileChooser(AdminActivity.this);
+        fileChooser.setFileListener(new FileChooser.FileSelectedListener() {
+            @Override
+            public void fileSelected(File file) {
+                String filename = file.getAbsolutePath();
+                if(filename.substring(filename.length()-4,filename.length()).toLowerCase().equals(".xml")){
+                    Intent intent = new Intent(AdminActivity.this, AdmMarcoActivity.class);
+                    intent.putExtra("filename",filename);
+                    intent.putExtra("tipo_carga",1);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(AdminActivity.this, "archivo de tipo incorrecto", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        fileChooser.showDialog();
+    }
 
 
 //    @Override
